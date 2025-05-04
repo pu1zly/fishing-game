@@ -143,46 +143,46 @@ export const fishLootTable = {
         ],
 
         "Rio Paraná": [
-            { grade: "C",  name: "Minnow", fishSize: 0.5, fishImage: "../images/fish/yangtze/minnow.png" },
-            { grade: "S",  name: "Loach", fishSize: 0.5, fishImage: "../images/fish/yangtze/loach.png" },
-            { grade: "S",  name: "Grass Carp", fishSize: 10, fishImage: "../images/fish/yangtze/grass_carp.png" },
-            { grade: "S+",  name: "Black Carp", fishSize: 25, fishImage: "../images/fish/yangtze/black_carp.png" },
-            { grade: "S+",  name: "Silver Carp", fishSize: 25, fishImage: "../images/fish/yangtze/silver_carp.png" },
+            { grade: "C",  name: "Cascudo Catfish", fishSize: 0.3, fishImage: "/fishing-game/images/fish/rio/cascudo.png" },
+            { grade: "S",  name: "Dorado", fishSize: 25, fishImage: "/fishing-game/images/fish/rio/dorado.png" },
+            { grade: "S",  name: "Pintado", fishSize: 80, fishImage: "/fishing-game/images/fish/rio/pintado.png" },
+            { grade: "S+",  name: "Surubí Catfish", fishSize: 100, fishImage: "/fishing-game/images/fish/rio/surubi.png" },
+            { grade: "S+",  name: "Manguruyú", fishSize: 120, fishImage: "/fishing-game/images/fish/rio/manguruyu.png" },
             {
-                name: "Giant Salamander",
+                name: "Plesiosaurus",
                 minScore: 1000,
-                fishSize: 45,
-                fishImage: "../images/fish/yangtze/salamander.png",
+                fishSize: 10000,
+                fishImage: "/fishing-game/images/fish/rio/plesiosaur.png",
                 isRare: true
             }
         ],
 
         "Zambezi River": [
-            { grade: "C",  name: "Sea Bream", fishSize: 5, fishImage: "../images/fish/okinawa/sea_bream.png" },
-            { grade: "B",  name: "Rockfish", fishSize: 2, fishImage: "../images/fish/okinawa/rockfish.png" },
-            { grade: "S+",  name: "Amberjack", fishSize: 10, fishImage: "../images/fish/okinawa/amberjack.png" },
-            { grade: "S+",  name: "Japanese Sea Bass", fishSize: 15, fishImage: "../images/fish/okinawa/sea_bass.png" },
-            { grade: "S+",  name: "Mola Mola", fishSize: 1000, fishImage: "../images/fish/okinawa/molamola.png" },
+            { grade: "C",  name: "Banded Tilapia", fishSize: 0.3, fishImage: "/fishing-game/images/fish/zambezi/banded_tilapia.png" },
+            { grade: "B",  name: "Bream", fishSize: 5, fishImage: "/fishing-game/images/fish/zambezi/bream.png" },
+            { grade: "S+",  name: "Tigerfish", fishSize: 10, fishImage: "/fishing-game/images/fish/zambezi/tigerfish.png" },
+            { grade: "S+",  name: "African Sharptooth Catfish", fishSize: 15, fishImage: "/fishing-game/images/fish/zambezi/sharptooth_catfish.png" },
+            { grade: "S+",  name: "Nile Perch", fishSize: 1000, fishImage: "/fishing-game/images/fish/zambezi/nile_perch.png" },
             {
-                name: "Ningen",
+                name: "Nyami-Nyami",
                 minScore: 2000,
                 fishSize:200,
-                fishImage: "../images/fish/okinawa/ningen.png",
+                fishImage: "/fishing-game/images/fish/zambezi/nyami.png",
                 isRare: true
             }
         ],
 
         "Lake Victoria": [
-            { grade: "C",  name: "Sinarapan", fishSize: 0.5, fishImage: "../images/fish/taal/sinarapan.png" },
-            { grade: "S",  name: "lobed Silver Mullet", fishSize: 2, fishImage: "../images/fish/taal/lobed_mullet.png" },
-            { grade: "S+",  name: "Milkfish", fishSize: 5, fishImage: "../images/fish/taal/milkfish.png" },
-            { grade: "S+",  name: "Trevally", fishSize: 5, fishImage: "../images/fish/taal/trevally.png" },
-            { grade: "S+",  name: "Whale Shark", fishSize: 22000, fishImage: "../images/fish/taal/whale_shark.png" },
+            { grade: "C",  name: "Sinarapan", fishSize: 0.5, fishImage: "/fishing-game/images/fish/victoria/sinarapan.png" },
+            { grade: "S",  name: "lobed Silver Mullet", fishSize: 2, fishImage: "/fishing-game/images/fish/victoria/lobed_mullet.png" },
+            { grade: "S+",  name: "Milkfish", fishSize: 5, fishImage: "/fishing-game/images/fish/victoria/milkfish.png" },
+            { grade: "S+",  name: "Trevally", fishSize: 5, fishImage: "/fishing-game/images/fish/victoria/trevally.png" },
+            { grade: "S+",  name: "Whale Shark", fishSize: 22000, fishImage: "/fishing-game/images/fish/victoria/whale_shark.png" },
             {
                 name: "Oarfish",
                 minScore: 700,
                 fishSize: 0.5,
-                fishImage: "../images/fish/taal/oarfish.png",
+                fishImage: "/fishing-game/images/fish/victoria/oarfish.png",
                 isRare: true
             }
         ],
