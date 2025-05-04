@@ -4,11 +4,11 @@
 export const fishLootTable = {
     easy: {
         "Vancouver Island": [
-            { grade: "C",  name: "Yellow Perch", fishSize: 4, fishImage: "/fishing-game/images/fish/vancouver/perch.png" },
-            { grade: "B",  name: "Pink Salmon", fishSize: 6, fishImage: "/fishing-game/images/fish/vancouver/pink_salmon.png" },
-            { grade: "A",  name: "Chum Salmon", fishSize: 12, fishImage: "/fishing-game/images/fish/vancouver/chum_salmon.png" },
-            { grade: "S",  name: "Halibut", fishSize: 12, fishImage: "/fishing-game/images/fish/vancouver/halibut.png" },
-            { grade: "S+",  name: "Chinook Salmon", fishSize: 12, fishImage: "/fishing-game/images/fish/vancouver/chinook_salmon.png" },
+            { grade: "C",  name: "Yellow Perch", fishSize: 4, fishImage: "/images/fish/vancouver/perch.png" },
+            { grade: "B",  name: "Pink Salmon", fishSize: 6, fishImage: "/images/fish/vancouver/pink_salmon.png" },
+            { grade: "A",  name: "Chum Salmon", fishSize: 12, fishImage: "/images/fish/vancouver/chum_salmon.png" },
+            { grade: "S",  name: "Halibut", fishSize: 12, fishImage: "/images/fish/vancouver/halibut.png" },
+            { grade: "S+",  name: "Chinook Salmon", fishSize: 12, fishImage: "/images/fish/vancouver/chinook_salmon.png" },
             {
                 name: "River Monster",
                 minScore: 700,
