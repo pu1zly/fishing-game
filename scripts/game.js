@@ -93,7 +93,7 @@ function setDifficulty(level) {
     let bgImage = "";
     if (level === "easy") bgImage = "images/bg/easy-bg.gif";
     if (level === "medium") bgImage = "images/bg/medium-bg.gif";
-    if (level === "hard") bgImage = "images/hard-bg.gif";
+    if (level === "hard") bgImage = "images/bg/hard-bg.gif";
     changeBackground(bgImage);
 
     showSongMenu(level);
