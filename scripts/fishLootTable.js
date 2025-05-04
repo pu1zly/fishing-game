@@ -11,7 +11,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "Chinook Salmon", fishSize: 12, fishImage: "/fishing-game/images/fish/vancouver/chinook_salmon.png" },
             {
                 name: "River Monster",
-                minScore: 700,
                 fishSize: 150,
                 fishImage: "/fishing-game/images/fish/vancouver/monster.png",
                 isRare: true
@@ -26,7 +25,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "King Salmon", fishSize: 15, fishImage: "/fishing-game/images/fish/kenai/kingsalmon.png" },
             {
                 name: "Pixel Pike",
-                minScore: 700,
                 fishSize: 5,
                 fishImage: "/fishing-game/images/fish/kenai/pixel_pike.png",
                 isRare: true
@@ -41,7 +39,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "Sturgeon", fishSize: 40, fishImage: "/fishing-game/images/fish/lakemichigan/sturgeon.png" },
             {
                 name: "Pixel Bluegill",
-                minScore: 700,
                 fishSize: 2,
                 fishImage: "/fishing-game/images/fish/lakemichigan/pixel_bluegill.png",
                 isRare: true
@@ -56,7 +53,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "Tarpon", fishSize: 55, fishImage: "/fishing-game/images/fish/keywest/tarpon.png" },
             {
                 name: "Pixel Clownfish",
-                minScore: 700,
                 fishSize: 0.5,
                 fishImage: "/fishing-game/images/fish/keywest/pixel_clownfish.png",
                 isRare: true
@@ -73,7 +69,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "Yellowtail", fishSize: 12, fishImage: "/fishing-game/images/fish/jejuisland/yellowtail.png" },
             {
                 name: "Boss Myeolchi",
-                minScore: 2000,
                 fishSize: 10000,
                 fishImage: "/fishing-game/images/fish/jejuisland/myeolchi.png",
                 isRare: true
@@ -88,7 +83,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "Silver Carp", fishSize: 25, fishImage: "/fishing-game/images/fish/yangtze/silver_carp.png" },
             {
                 name: "Giant Salamander",
-                minScore: 1000,
                 fishSize: 45,
                 fishImage: "/fishing-game/images/fish/yangtze/salamander.png",
                 isRare: true
@@ -103,7 +97,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "Mola Mola", fishSize: 1000, fishImage: "/fishing-game/images/fish/okinawa/molamola.png" },
             {
                 name: "Ningen",
-                minScore: 2000,
                 fishSize:200,
                 fishImage: "/fishing-game/images/fish/okinawa/ningen.png",
                 isRare: true
@@ -118,7 +111,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "Whale Shark", fishSize: 22000, fishImage: "/fishing-game/images/fish/taal/whale_shark.png" },
             {
                 name: "Oarfish",
-                minScore: 700,
                 fishSize: 0.5,
                 fishImage: "/fishing-game/images/fish/taal/oarfish.png",
                 isRare: true
@@ -135,7 +127,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "Arapaima", fishSize: 150, fishImage: "/fishing-game/images/fish/amazon/arapaima.png" },
             {
                 name: "Yacumama",
-                minScore: 2000,
                 fishSize: 5000,
                 fishImage: "/fishing-game/images/fish/amazon/yacumama.png",
                 isRare: true
@@ -150,7 +141,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "Manguruyú", fishSize: 120, fishImage: "/fishing-game/images/fish/rio/manguruyu.png" },
             {
                 name: "Plesiosaurus",
-                minScore: 1000,
                 fishSize: 10000,
                 fishImage: "/fishing-game/images/fish/rio/plesiosaur.png",
                 isRare: true
@@ -165,7 +155,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "Nile Perch", fishSize: 1000, fishImage: "/fishing-game/images/fish/zambezi/nile_perch.png" },
             {
                 name: "Nyami-Nyami",
-                minScore: 2000,
                 fishSize:200,
                 fishImage: "/fishing-game/images/fish/zambezi/nyami.png",
                 isRare: true
@@ -180,7 +169,6 @@ export const fishLootTable = {
             { grade: "S+",  name: "Nile Crocodile", fishSize: 250, fishImage: "/fishing-game/images/fish/victoria/croc.png" },
             {
                 name: "Pixel Perch",
-                minScore: 700,
                 fishSize: 30,
                 fishImage: "/fishing-game/images/fish/victoria/pixel_perch.png",
                 isRare: true
