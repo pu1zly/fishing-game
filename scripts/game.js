@@ -119,7 +119,7 @@ function showSongMenu(level) {
         btn.classList.add("image-button"); // apply custom button styles
 
         // Background image and layout styling
-        btn.style.backgroundImage = `url('./images/btn/Longbutton2.png')`;
+        btn.style.backgroundImage = `url('/fishing-game/images/btn/Longbutton2.png')`;
         btn.style.backgroundSize = "fill";
         btn.style.backgroundRepeat = "no-repeat";
         btn.style.backgroundPosition = "center";
@@ -924,42 +924,42 @@ startBtn.addEventListener("click", () => {
     resultsScreen.style.display = "none";
     homePage.style.display = "none";
     mainMenu.style.display = "block"; // Show main menu after clicking "Start"
-    changeBackground("images/bg/difficulty-bg.gif");
+    changeBackground("/fishing-game/images/bg/difficulty-bg.gif");
 });
 
 mainMenuFromResultsBtn.addEventListener("click", () => {
     resultsScreen.style.display = "none";
     resultsScreen.style.display = "none";
     homePage.style.display = "block";
-    changeBackground("images/bg/background.gif");
+    changeBackground("/fishing-game/images/bg/background.gif");
 });
 
 settingsBtn.addEventListener("click", () => {
     resultsScreen.style.display = "none";
     homePage.style.display = "none";
     settingsPage.style.display = "block";
-    changeBackground("images/bg/settings-bg.png");
+    changeBackground("/fishing-game/images/bg/settings-bg.png");
 });
 
 tutorialBtn.addEventListener("click", () => {
     resultsScreen.style.display = "none";
     homePage.style.display = "none";
     tutorialPage.style.display = "block";
-    changeBackground("images/bg/tutorial-bg.jpg");
+    changeBackground("/fishing-game/images/bg/tutorial-bg.jpg");
 });
 
 backFromSettingsBtn.addEventListener("click", () => {
     resultsScreen.style.display = "none";
     settingsPage.style.display = "none";
     homePage.style.display = "block";
-    changeBackground("images/bg/background.gif");
+    changeBackground("/fishing-game/images/bg/background.gif");
 });
 
 backFromTutorialBtn.addEventListener("click", () => {
     resultsScreen.style.display = "none";
     tutorialPage.style.display = "none";
     homePage.style.display = "block";
-    changeBackground("images/bg/background.gif");
+    changeBackground("/fishing-game/images/bg/background.gif");
 });
 
 backFromMainBtn.addEventListener("click", () => {
@@ -967,7 +967,7 @@ backFromMainBtn.addEventListener("click", () => {
     mainMenu.style.display = "none";
     homePage.style.display = "block"; // Show the home page
     document.body.classList.remove("easy-bg", "medium-bg", "hard-bg");
-    changeBackground("images/bg/background.gif");
+    changeBackground("/fishing-game/images/bg/background.gif");
 });
 
 //BG transitioning
