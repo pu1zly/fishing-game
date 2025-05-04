@@ -200,7 +200,7 @@ body::before {
    Settings Page
 ---------------------------------*/
 .settings-options {
-    background: url('/images/btn/largebuttonBG.png') no-repeat center center;
+    background: url('../images/btn/largebuttonBG.png') no-repeat center center;
     background-size: cover; /* or 'contain' if you want it not to crop */
     padding: 30px;
     border-radius: 15px;
