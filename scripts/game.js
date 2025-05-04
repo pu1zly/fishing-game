@@ -81,9 +81,9 @@ function setDifficulty(level) {
     selectedDifficulty = level;
 
     // 🧠 Dynamic maxMisses by difficulty
-    if (level === "easy") maxMisses = 8;
-    else if (level === "medium") maxMisses = 6;
-    else if (level === "hard") maxMisses = 4;
+    if (level === "easy") maxMisses = 6;
+    else if (level === "medium") maxMisses = 4;
+    else if (level === "hard") maxMisses = 2;
 
     mainMenu.style.display = "none";
     document.getElementById("song-menu").style.display = "block";
