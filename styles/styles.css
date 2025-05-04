@@ -1,0 +1,1397 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Roboto:wght@400;500&display=swap');
+
+
+/* ------------------------------
+   Base Styles & Layout
+---------------------------------*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* The overlay that handles animated background switching */
+#background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/bg/background.gif"); /* Default */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Two background layers for smooth transition */
+.background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* When switching, we use these layers for fading */
+#background-old {
+    opacity: 1; /* The current background visible */
+    z-index: -2;
+}
+
+#background-new {
+    opacity: 0; /* New background, initially hidden */
+    z-index: -1;
+}
+
+/* Optional dark tint overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    z-index: -1;
+}
+
+/* ------------------------------
+   Home Page
+---------------------------------*/
+#home-page {
+    text-align: center;
+    color: #ffffff;
+    padding-bottom: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#home-text {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    padding-top: 170px;
+    color: #F8F9FA;
+}
+
+.home-description-container {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 260px;
+    height: 800px;
+    background: rgba(16, 16, 16, 0.9); /* translucent black */
+    padding: 25px;
+    border: #d1a65a solid 3px;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(7, 7, 7, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    overflow: hidden;
+    backdrop-filter: blur(4px); /* 🍸 optional: soft blur effect */
+    -webkit-backdrop-filter: blur(4px); /* for Safari */
+}
+
+.description-image {
+    position: absolute;
+    top: 50px; /* adjust if you need to */
+    width: 200px; /* or whatever fits your vibe */
+    height: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none; /* so it doesn't block any clicks */
+    border: #edb31e solid 3px;
+}
+
+.home-description {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.7;
+    padding-top: 140px;
+    text-shadow: 1px 1px 3px #000;
+}
+
+.home-description hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(#d1a65a 0%, #d1a65a 100%);
+    margin: 20px 0;
+}
+
+
+#home-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1px; /* adjust spacing between buttons */
+    margin-top: 1px; /* optional: adjust spacing from title */
+}
+
+/* Home Buttons */
+/* Home Page Buttons */
+#start-btn, #settings-btn, #tutorial-btn {
+    width: 250px; /* adjust based on your PNG */
+    height: 130px; /* adjust based on your PNG */
+    background: url('../images/btn/buttonBG.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    margin: 0 10px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#start-btn:hover, #settings-btn:hover, #tutorial-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Text Label */
+#start-btn .button-label,
+#settings-btn .button-label,
+#tutorial-btn .button-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px #000;
+    text-align: center;
+}
+
+
+/* ------------------------------
+   Settings Page
+---------------------------------*/
+.settings-options {
+    background: url('/images/btn/largebuttonBG.png') no-repeat center center;
+    background-size: cover; /* or 'contain' if you want it not to crop */
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    width: 100%;
+    height:64%;
+}
+
+.setting {
+    margin: 30px 30px 30px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #ddb846;
+    border-radius: 8px;
+}
+
+.setting label {
+    font-weight: 500;
+    color: #f5f5f6;
+    margin-right: 15px;
+    min-width: 180px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.volume-display {
+    margin-left: 10px;
+    color: #fff;
+    font-weight: bold;
+    min-width: 40px;
+    text-align: right;
+    text-shadow:
+            -1px -1px 0 #000,
+            1px -1px 0 #000,
+            -1px  1px 0 #000,
+            1px  1px 0 #000; /* 🔥 Fake "border" around text using shadows */
+}
+
+
+.setting input[type="range"] {
+    flex-grow: 1;
+    margin: 0 15px;
+    height: 8px;
+    -webkit-appearance: none;
+    background: #eae8ed;
+    border-radius: 4px;
+    border: 2px solid black;
+}
+
+.setting input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #d39c40;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid black;
+}
+
+/* Back from Settings Button */
+/* Back from Settings (image button) */
+#back-from-settings-btn {
+    background: none;
+    background-image: url('../images/btn/buttonBG.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    width: 200px;
+    height: 100px;
+
+    /* layout */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+
+    /* text */
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+
+    /* hover */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+#back-from-settings-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* center the label over the image */
+#back-from-settings-btn .button-label {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    text-shadow: 1px 1px 3px #000;
+}
+
+
+/* ------------------------------
+   Tutorial Page
+---------------------------------*/
+#tutorial-page h1 {
+    color: #eac73a;
+    text-align: center;
+}
+
+.tutorial-content {
+    background-color: rgba(19, 18, 18, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    margin: -50px 0 30px;
+    line-height: 1.6;
+}
+
+.tutorial-content h2 {
+    color: #d39c40;
+    margin: 25px 0 15px;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #edb31e;
+    padding-bottom: 8px;
+}
+
+.tutorial-content h3 {
+    color: #6C63FF;
+    margin: 15px 0 8px;
+}
+
+.tutorial-content ul {
+    padding-left: 20px;
+    margin: 15px 0;
+}
+
+.tutorial-content li {
+    margin-bottom: 8px;
+    color: white;
+}
+
+.tutorial-content p {
+    margin: 10px 0;
+    color: white;
+}
+
+/* Back from Tutorial Button */
+#back-from-tutorial-btn {
+    background: none;
+    background-image: url('../images/btn/buttonBG.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    width: 250px;
+    height: 100px;
+
+    /* layout */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+
+    /* text */
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+
+    /* hover */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#back-from-tutorial-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* center the label over the image */
+#back-from-tutorial-btn .button-label {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    text-shadow: 1px 1px 3px #000;
+}
+
+/* ------------------------------
+   Main Menu (Difficulty)
+---------------------------------*/
+#main-menu {
+    text-align: center;
+    color: #ffffff;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#main-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: 1.2px;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+    padding-bottom: 70px;
+    color: #EFEFEF;
+}
+
+#difficulty-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 20px;
+}
+
+/* Difficulty Buttons (Shallow River, Lakeside, Deep Sea) */
+#easy-btn {
+    width: 500px;
+    height: 150px;
+    background: url('../images/btn/americaBTN.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 8px 0;
+}
+
+#medium-btn {
+    width: 500px;
+    height: 150px;
+    background: url('../images/btn/asiaBTN.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 8px 0;
+
+}
+#hard-btn {
+    width: 500px;
+    height: 150px;
+    background: url('../images/btn/africaBTN.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 8px 0;
+
+}
+#easy-btn:hover, #medium-btn:hover, #hard-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Label inside the button */
+#easy-btn .button-label,
+#medium-btn .button-label,
+#hard-btn .button-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px #000;
+    text-align: center;
+}
+
+/* Back From Main Menu Button */
+#back-from-main-btn {
+    width: 250px;
+    height: 130px;
+    background: url('../images/btn/buttonBG.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-transform: uppercase;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 20px;
+}
+
+#back-from-main-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Label centered inside the button */
+#back-from-main-btn .button-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px #000;
+    text-align: center;
+}
+
+/* ------------------------------
+   Game UI
+---------------------------------*/
+#note-bar {
+    position: relative;
+    top: 300px;
+    width: 800px;
+    height: 100px;
+    background-color: #ccc;
+    border: 4px solid #333;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#hitzone {
+    position: absolute;
+    left: 225px;
+    width: 45px;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.2);
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+    z-index: 2;
+}
+
+.note {
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    top: 0;
+    z-index: 1;
+    border-left: 5px solid #333;
+    border-right: 5px solid #333;
+
+    /* Center the text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    user-select: none;
+    pointer-events: none;
+}
+
+.note-don {
+    background-color: #f44336; /* red */
+}
+
+.note-ka {
+    background-color: #2196f3; /* blue */
+}
+
+.note.missed {
+    background-color: rgba(19, 18, 18, 0.8); /* Red highlight for missed notes */
+    animation: flashMiss 0.3s ease-out;
+}
+
+@keyframes flashMiss {
+    0% { opacity: 1; background-color: rgba(255, 255, 255, 0.8); }
+    100% { opacity: 0; }
+}
+
+#hud,
+#beatmap-name {
+    position: absolute;
+    font-size: 20px;
+    color: white;
+    top: 100px;
+}
+
+#hud { left: 65.7%; }
+#beatmap-name { left: 29.3%; }
+
+.feedback {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 670px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    opacity: 1;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Pause Button */
+#pause-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 200px; /* adjust to your PNG size */
+    height: 100px; /* adjust to your PNG size */
+    padding: 0;
+    border: none;
+    background: url('../images/btn/buttonBG.png') no-repeat center center;
+    background-size: cover;
+    cursor: pointer;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.5);
+    z-index: 5;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#pause-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+#pause-btn .button-label {
+    pointer-events: none;
+}
+
+/* ------------------------------
+   Stopwatch & Countdown
+---------------------------------*/
+#stopwatch-container {
+    position: absolute;
+    top: 13.5%;
+    left: 29.3%;
+    color: white;
+    font-size: 15px;
+}
+
+#countdown {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    color: white;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* ------------------------------
+   Pause & Overlay
+---------------------------------*/
+#pause-overlay {
+    display: none;
+    position: fixed;
+    gap: 20px;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    justify-content: center;
+    align-items: center;
+}
+
+body.paused #pause-overlay,
+#pause-overlay.active {
+    display: flex;
+}
+
+#pause-overlay .pause-menu {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.7);
+    max-width: 300px;
+    width: 80%;
+}
+
+#pause-overlay .pause-menu h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+/* Pause Menu Buttons */
+/* Pause Menu Buttons */
+#retry-btn, #song-select-btn, #main-menu-btn {
+    width: 240px; /* Set width based on your buttonBG.png */
+    height: 120px; /* Set height based on your buttonBG.png */
+    margin: 10px 0;
+    padding: 0;
+    background: url('../images/btn/buttonBG.png') no-repeat center center;
+    background-size: cover;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 1rem;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#retry-btn:hover, #song-select-btn:hover, #main-menu-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(255, 250, 250, 0.4);
+}
+
+/* Label Overlay */
+#retry-btn .button-label,
+#song-select-btn .button-label,
+#main-menu-btn .button-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: white;
+    font-size: 1rem;
+    text-shadow: 1px 1px 2px #000;
+    text-align: center;
+}
+
+
+/* ------------------------------
+   Results & Fish Display
+---------------------------------*/
+#results-screen {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border: black solid 2px;
+}
+
+#results-screen p { padding-bottom: 20px; }
+#results-screen h2 { margin: 0 0 20px; }
+
+/* Retry (Results) Button */
+#retry-from-results-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 10px 5px;
+    width: 200px;   /* set to your PNG’s width */
+    height: 100px;   /* set to your PNG’s height */
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    background-image: url('../images/btn/buttonBG.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#retry-from-results-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+#retry-from-results-btn .button-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 3px #000;
+    color: white;
+}
+
+/* “Song Select” (Results) Button */
+#go-back-song-select-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 10px 5px;
+    width: 200px;
+    height: 100px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    background-image: url('../images/btn/buttonBG.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#go-back-song-select-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+#go-back-song-select-btn .button-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 3px #000;
+    color: white;
+}
+
+/* Main Menu (Results) Button */
+#main-menu-from-results-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 10px 5px;
+    width: 200px;
+    height: 100px;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    background-image: url('../images/btn/buttonBG.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#main-menu-from-results-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+#main-menu-from-results-btn .button-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 3px #000;
+    color: white;
+}
+
+/* Fish Container */
+.fish-container {
+    display: none;
+    text-align: center;
+    margin-top: 70px;
+}
+
+.fish-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 700px;
+    height: 400px;
+    margin-top: 80px;
+    padding: 10px;
+    left: 1%;
+
+    background-image: url('../images/misc/taiko_tv.png'); /* change to your actual image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+
+.fish-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: none;
+    display: block;
+    margin-right:160px;
+    margin-bottom:50px;
+}
+
+
+.fish-size-message {
+    position: absolute;
+    bottom: 14%;
+    left: 40%;
+    transform: translateX(-50%);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    pointer-events: none;
+    white-space: nowrap;
+    text-shadow: 1px 1px 3px #000;
+}
+
+.rank-display {
+    position: absolute;
+    top: 57%;
+    right: 55px;
+    text-align: center;
+    z-index: 2;
+    width: 90px;       /* or adjust to match the widest text you expect */
+    height: 50px;      /* to fit both lines */
+    overflow: hidden;  /* prevents overflow pushing things */
+}
+
+.fish-grade-label {
+    position: absolute;
+    top: 170px;
+    right: 75px;
+    width: 80px;               /* 👈 Fix width to avoid text-based size shifts */
+    height: 40px;              /* optional: lock height too */
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: gold;
+    text-shadow: 0 0 10px black;
+    text-align: center;        /* 👈 keeps short/long grades centered */
+    display: none;
+    white-space: nowrap;       /* 👈 prevents wrap just in case */
+}
+
+/* ------------------------------
+   Song Menu
+---------------------------------*/
+#song-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    gap: 20px;
+}
+
+#song-menu h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 100;
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+#song-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    width: auto;
+}
+
+#song-menu-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+/* Song/Beatmap Buttons */
+.beatmap-item {
+    position: relative;
+}
+
+.beatmap-button {
+    width: 90%;
+    height: 80px;
+    padding: 0;
+    border: none;
+    border-radius: 12px;
+    background-image: url("../images/btn/buttonBG.png"); /* your button image */
+    background-size: 100% 100%; /* ✅ stretch to fill */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.beatmap-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+label {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Make sure it stretches full width */
+    padding: 5px 10px; /* Optional: nice breathing room */
+}
+
+.map-name {
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+}
+
+.best-score {
+    font-size: 16px;
+    color: #ccc;
+}
+
+.beatmap-info {
+    display: none;
+    position: absolute;
+    bottom: -170px;
+    left:105%;
+    width: 200px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.beatmap-item:hover .beatmap-info {
+    display: block;
+}
+
+.fish-preview {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 13px;
+}
+
+/* Reset Scores Button */
+#reset-scores-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    width: 300px;   /* your PNG width */
+    height: 140px;   /* your PNG height */
+    background-color: transparent;
+    background-image: url('../images/btn/ButtonBG.png'); /* reset scores PNG */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: white;
+}
+
+#reset-scores-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+#reset-scores-btn .button-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-size: 1rem;
+    text-shadow: 1px 1px 3px #000;
+}
+
+/* Back to Locations Button */
+#back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    width: 300px;   /* your PNG width */
+    height: 140px;   /* your PNG height */
+    background-color: transparent;
+    background-image: url('../images/btn/buttonBG.png'); /* back button PNG */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: white;
+}
+
+#back-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+#back-btn .button-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    font-size: 1rem;
+    text-shadow: 1px 1px 3px #000;
+}
+
+/* fish collection */
+#fish-collection-screen {
+    padding: 20px;
+    background-color: #0b1e2d;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.nav-btn {
+    background-color: #1f3a52;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.collection-title {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 10px;
+}
+
+.fish-card {
+    background-color: #162e42;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+}
+
+.fish-card:hover {
+    transform: scale(1.03);
+}
+
+.fish-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.fish-card h4 {
+    margin: 8px 0 4px;
+    font-size: 18px;
+}
+
+.fish-card p {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+#song-menu-buttons .image-button {
+    margin: 8px;
+}
+
+.collection-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+    width: 300px;   /* your PNG width */
+    height: 140px;   /* your PNG height */
+    background-color: transparent;
+    background-image: url('../images/btn/ButtonBG.png'); /* reset scores PNG */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    color: white;
+}
+
+/* Optional hover effect */
+.collection-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+/* Fish Collection Grid Layout */
+.collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow-y: auto;
+}
+
+/* Fish Card Styling */
+.fish-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fish Image */
+.fish-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: filter 0.3s ease;
+}
+
+/* Text Styling */
+.fish-card h4 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #333;
+}
+
+.fish-card p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* === UNCATCHED FISH OVERRIDES === */
+.fish-card.uncaught img {
+    filter: grayscale(100%) brightness(0.1) blur(10px);
+    opacity: 0.6;
+}
+
+.fish-card.uncaught h4,
+.fish-card.uncaught p {
+    visibility: hidden;
+}
+
+.fish-card.uncaught::before {
+    content: "???";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #999;
+    font-size: 1.4rem;
+    font-weight: 700;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* the gif */
+#fish-gif-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 350px;
+    z-index: 10;
+    pointer-events: none;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(7, 7, 7, 0.7);
+    border: 2px solid rgb(211, 156, 64);
+    border-radius: 16px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Prevents overflowing GIFs */
+}
+
+#fish-gif {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+    transition: opacity 0.3s ease;
+    margin-top: 18px;
+}
+
+

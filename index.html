@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>태고의 낚시왕: Cast the Beat!</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+</head>
+<body>
+<div id="background-overlay"></div>
+<div id="background-old" class="background-layer"></div>
+<div id="background-new" class="background-layer"></div>
+
+<!-- 🎣 Home Page -->
+<div id="home-page">
+    <div id="home-title">
+        <img src="images/bg/logo.png" alt="taiko" height="348" width="500" >
+    </div>
+    <div id="home-text"><h2>Please Press a Button!</h2></div>
+
+    <div class="home-description-container">
+        <img src="./images/misc/fishmain.gif" alt="Fishing Adventure" class="description-image">
+        <div class="home-description">
+            <p>
+                Fishing Rhythm is a fast-paced music game where players tap in perfect sync with the beat to succeed.
+                Precision and timing are key as you ride the flow of each song, aiming to hit every note with flawless accuracy.
+            </p>
+            <hr>
+            <p>
+                Each note you strike casts your line deeper into the musical waters.
+                The better your rhythm, the closer you reel in rare and legendary fish — turning musical mastery into the ultimate fishing adventure.
+            </p>
+        </div>
+    </div>
+
+    <div id="home-buttons">
+        <button id="settings-btn" class="image-button"><span class="button-label">Settings</span></button>
+        <button id="start-btn" class="image-button"><span class="button-label">Start</span></button>
+        <button id="tutorial-btn" class="image-button"><span class="button-label">Tutorial</span></button>
+    </div>
+</div>
+
+<!-- ⚙️ Settings Page -->
+<div id="settings-page" style="display: none;">
+    <div class="settings-options">
+
+        <div class="setting">
+            <label for="volume-control">Music Volume:</label>
+            <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1">
+            <span id="music-volume-display" class="volume-display">100%</span>
+        </div>
+
+        <div class="setting">
+            <label for="sfx-volume-control">SFX Volume:</label>
+            <input type="range" id="sfx-volume-control" min="0" max="1" step="0.01" value="1">
+            <span id="sfx-volume-display" class="volume-display">100%</span>
+        </div>
+
+    </div>
+
+    <button id="back-from-settings-btn" class="image-button">
+        <span class="button-label">Back to Home</span>
+    </button>
+</div>
+
+
+
+<!-- 📖 Tutorial Page -->
+<div id="tutorial-page" style="display: none;">
+    <h1>How to Play</h1>
+    <div class="tutorial-content">
+        <h2>Controls</h2>
+        <p>Press <strong>W</strong> for red notes and <strong>E</strong> for blue notes when they hit the red bar.</p>
+        <p>Press <strong>ESC</strong> or click “Pause” to pause, then use on-screen buttons to retry or exit.</p>
+
+        <h2>Rules</h2>
+        <p>After a 3-second countdown, notes fall at your song’s BPM. Missing 30 notes ends the run.</p>
+
+        <h2>Scoring</h2>
+        <p>Each correct hit = +50 points. No negative points—misses just count against you.</p>
+
+        <h2>Tips</h2>
+        <ul>
+            <li>Start on easy to learn the beat.</li>
+            <li>Watch the hit bar, not the note’s tail.</li>
+            <li>Adjust volume in Settings if you struggle to hear the song.</li>
+        </ul>
+    </div>
+    <button id="back-from-tutorial-btn" class="image-button">
+        <span class="button-label">Back</span>
+    </button>
+</div>
+
+<!-- 📊 Main Menu -->
+<div id="main-menu" style="display: none;">
+    <div id="main-title"><h2>Select a Continent</h2></div>
+    <div id="difficulty-buttons">
+        <button id="easy-btn" class="image-button"><span class="button-label">N. America</span></button>
+        <button id="medium-btn" class="image-button"><span class="button-label">Asia</span></button>
+        <button id="hard-btn" class="image-button"><span class="button-label">Africa / S. America</span></button>
+    </div>
+    <button id="back-from-main-btn" class="image-button"><span class="button-label">Back to Home</span></button>
+</div>
+
+<!-- 🎵 Song Selection Menu -->
+<div id="song-menu" style="display: none;">
+    <h2>Select a Fishing Spot</h2>
+    <div id="song-list"></div>
+    <div id="song-menu-buttons">
+        <button id="reset-scores-btn" class="image-button"><span class="button-label">Reset Scores</span></button>
+
+        <!-- collection button now just has classes, no inline styles -->
+        <button id="view-collection-btn" class="image-button collection-button">
+            <span class="button-label">View Fish Collection</span>
+        </button>
+
+        <button id="back-btn" class="image-button"><span class="button-label">Back to Locations</span></button>
+    </div>
+</div>
+
+<!-- Fish Collection Screen -->
+<div id="fish-collection-screen" style="display: none;">
+    <button id="return-to-menu-btn" class="nav-btn">← Back to Song Menu</button>
+    <h2 class="collection-title">📖 Fish Collection</h2>
+    <div id="collection-grid" class="collection-grid">
+        <!-- dynamically inserted fish cards -->
+    </div>
+</div>
+
+<!-- 🎮 Game Container -->
+<div id="game-container" style="display: none;">
+    <div id="note-bar">
+        <div id="hitzone"></div>
+        <div id="note-container"></div>
+    </div>
+
+    <div id="hud">
+        Score: <span id="score">0</span> |
+        Misses: <span id="miss-count">0 / 6</span>
+    </div>
+
+    <!-- Fish Reaction GIF, centered in the game -->
+    <div id="fish-gif-container">
+        <img id="fish-gif" src="images/gif/idle.gif" alt="Fish Reaction">
+    </div>
+
+    <div id="beatmap-name">Currently Catching On:</div>
+    <div id="stopwatch-container"><span id="stopwatch">0:00 / 0:00</span></div>
+
+    <button id="pause-btn" class="image-button">
+        <span class="button-label">Pause</span>
+    </button>
+
+    <div id="feedback" class="feedback"></div>
+</div>
+
+<!-- ⏸ Pause Overlay -->
+<div id="pause-overlay">
+    <div class="pause-menu">
+        <h2>Paused</h2>
+        <button id="retry-btn" class="image-button">
+            <span class="button-label">Retry</span>
+        </button>
+        <button id="song-select-btn" class="image-button">
+            <span class="button-label">Song Select</span>
+        </button>
+        <button id="main-menu-btn" class="image-button">
+            <span class="button-label">Main Menu</span>
+        </button>
+    </div>
+
+</div>
+
+<!-- 🏁 Results Screen -->
+<div id="results-screen" style="display: none;">
+    <h2>Game Over!</h2>
+    <p>Map: <span id="beatmap-name-result"></span></p>
+    <p>Your final score: <span id="final-score"></span></p>
+    <p id="high-score-result"></p>
+
+    <!-- New message element for "No fish this time" -->
+    <p id="no-fish-message" style="display: none; color: #f44336;"></p>
+
+    <button id="retry-from-results-btn" class="image-button"><span class="button-label">Play Again</span></button>
+    <button id="go-back-song-select-btn" class="image-button"><span class="button-label">Map Select</span></button>
+    <button id="main-menu-from-results-btn" class="image-button"><span class="button-label">Main Menu</span></button>
+</div>
+
+<!-- 🐟 Fish Image -->
+<div id="fish-image-container" class="fish-container">
+    <div class="fish-box">
+        <img id="fish-image" src="" alt="Caught Fish" />
+
+        <!-- Rank Display -->
+        <div id="rank-display" class="rank-display">
+            <p id="ranktext" style="font-size: 1rem; color: #fff; text-shadow: 2px 2px 5px rgba(0,0,0,0.7); font-weight: bold;"></p>
+        </div>
+
+        <!-- Grade Letter (for quick single-letter grade display) -->
+        <div id="fish-grade-display" class="fish-grade-label"></div>
+
+        <!-- Fish Size / Name message -->
+        <div id="fish-size-display" class="fish-size-message"></div>
+    </div>
+</div>
+
+
+
+<!-- 🔊 Audio -->
+<audio id="bg-music" preload="auto"></audio>
+<audio id="don-sfx" src="audio/sfx/don.mp3"></audio>
+<audio id="ka-sfx"  src="audio/sfx/ka.mp3"></audio>
+
+<!-- ⏱ Countdown -->
+<div id="countdown"></div>
+
+<!-- 📜 Game Script -->
+<script type="module" src="scripts/game.js"></script>
+</body>
+</html>
