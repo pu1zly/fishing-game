@@ -737,11 +737,21 @@ function getCaughtFish(score, difficulty, lootTable) {
     const maxScore = getMaxScoreForBeatmap();
     const grade = getScoreGrade(score, maxScore, difficulty);
 
-    // 1 in 20 chance for rare fish
-    const rareChance = 1 / 20;
-    if (Math.random() < rareChance) {
+    const gradeOrder = ["C", "B", "A", "S", "S+"];
+    const playerGradeIndex = gradeOrder.indexOf(grade);
+
+    // For debugging
+    console.log("Player grade:", grade);
+    console.log("Available fish:", lootTable.map(f => `${f.name} (${f.grade || 'rare'})`));
+
+    // ✨ Only allow rare catch if grade is S or higher
+    const allowRare = playerGradeIndex >= gradeOrder.indexOf("S");
+
+    // 1. RNG rare catch (only if grade is high enough)
+    if (allowRare && Math.random() < 1 / 20) {
         const rareFish = lootTable.find(f => f.isRare);
         if (rareFish) {
+            console.log("Caught rare fish:", rareFish.name);
             return {
                 ...rareFish,
                 randomizedSize: rareFish.fishSize,
@@ -750,21 +760,24 @@ function getCaughtFish(score, difficulty, lootTable) {
         }
     }
 
-    const gradeOrder = ["C", "B", "A", "S", "S+"];
-    const playerGradeIndex = gradeOrder.indexOf(grade);
-
-    // Filter fish with grade <= player grade
+    // 2. Grade-based fish (non-rare)
     const eligibleFish = lootTable.filter(f => {
         if (f.isRare) return false;
-        const fishGradeIndex = gradeOrder.indexOf(f.grade || "C"); // fallback to C
+        const fishGradeIndex = gradeOrder.indexOf(f.grade || "C");
+        // Player can catch fish of equal or lower grade
         return fishGradeIndex <= playerGradeIndex;
     });
 
-    if (eligibleFish.length === 0) return null;
+    console.log("Eligible fish:", eligibleFish.map(f => f.name));
+
+    if (eligibleFish.length === 0) {
+        console.log("No eligible fish found");
+        return null;
+    }
 
     const selectedFish = eligibleFish[Math.floor(Math.random() * eligibleFish.length)];
+    console.log("Selected fish:", selectedFish.name);
 
-    // Slight variation on size
     const variation = 0.05;
     const multiplier = 1 + (Math.random() * 2 - 1) * variation;
     const randomizedSize = (selectedFish.fishSize * multiplier).toFixed(1);
