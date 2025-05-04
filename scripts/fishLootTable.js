@@ -128,16 +128,16 @@ export const fishLootTable = {
 
     hard: {
         "Amazon River Basin": [
-            { grade: "C",  name: "Catfish", fishSize: 4, fishImage: "../images/fish/jejuisland/catfish.png" },
-            { grade: "A",  name: "Freshwater Eel", maxScore: 700 , fishSize: 6, fishImage: "../images/fish/jejuisland/freshwater_eel.png" },
-            { grade: "S+",  name: "Softshell Turtle", fishSize: 12, fishImage: "../images/fish/jejuisland/softshell.png" },
-            { grade: "S+",  name: "Sea Eel", fishSize: 12, fishImage: "../images/fish/jejuisland/sea_eel.png" },
-            { grade: "S+",  name: "Yellowtail", fishSize: 12, fishImage: "../images/fish/jejuisland/yellowtail.png" },
+            { grade: "C",  name: "Neon Tetra", fishSize: 0.5, fishImage: "/fishing-game/images/fish/amazon/tetra.png" },
+            { grade: "A",  name: "Piranha", maxScore: 700 , fishSize: 1, fishImage: "/fishing-game/images/fish/amazon/piranha.png" },
+            { grade: "S+",  name: "Electric Eel", fishSize: 15, fishImage: "/fishing-game/images/fish/amazon/electric_eel.png" },
+            { grade: "S+",  name: "Piraíba Catfish", fishSize: 90, fishImage: "/fishing-game/images/fish/amazon/piraiba_catfish.png" },
+            { grade: "S+",  name: "Arapaima", fishSize: 150, fishImage: "/fishing-game/images/fish/amazon/arapaima.png" },
             {
-                name: "Boss Myeolchi",
+                name: "Yacumama",
                 minScore: 2000,
-                fishSize: 10000,
-                fishImage: "../images/fish/jejuisland/myeolchi.png",
+                fishSize: 5000,
+                fishImage: "/fishing-game/images/fish/amazon/yacumama.png",
                 isRare: true
             }
         ],
