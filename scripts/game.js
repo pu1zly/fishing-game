@@ -91,9 +91,9 @@ function setDifficulty(level) {
 
     // 🔁 Smooth background transition
     let bgImage = "";
-    if (level === "easy") bgImage = "images/bg/easy-bg.gif";
-    if (level === "medium") bgImage = "images/bg/medium-bg.gif";
-    if (level === "hard") bgImage = "images/bg/hard-bg.gif";
+    if (level === "easy") bgImage = "/fishing-game/images/bg/easy-bg.gif";
+    if (level === "medium") bgImage = "/fishing-game/images/bg/medium-bg.gif";
+    if (level === "hard") bgImage = "/fishing-game/images/bg/hard-bg.gif";
     changeBackground(bgImage);
 
     showSongMenu(level);
