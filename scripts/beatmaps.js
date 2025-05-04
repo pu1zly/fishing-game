@@ -69,7 +69,7 @@ export const beatmaps = {
     hard: [
         {
             name: "Amazon River Basin", //1800
-            bpm: 130, // Samba Do Brasil
+            bpm: 130, // Samba Do Brasileiro
             offset: 0,
             "beats-don": [1, 3.5, 5, 7.5, 8, 9, 10, 10.5, 11.5, 12.5, 14, 16.5, 17.5, 19.5, 20.5, 21, 22.5,],
             "beats-ka": [0, 0.5, 3, 4, 4.5, 6, 7, 8.5, 9.5, 11, 12, 13, 13.5, 16, 17, 19, 20, 22, 23],
