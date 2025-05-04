@@ -50,7 +50,7 @@ export const beatmaps = {
             music: "audio/yangtze.mp3",
         },
         {
-            name: "Okinawa Islands (沖縄諸島)", //2050
+            name: "Okinawa Islands (沖縄)", //2050
             bpm: 128, //PONPONPON
             offset: 0,
             "beats-don": [0.5, 3.5, 7.5, 8.5, 12, 16.2, 17.2, 19.5, 21.5, 24.3, 25.3, 26.3, 27.5, 28.5, 29.5, 30.5, 34.5, 34.8, 35.4, 38],

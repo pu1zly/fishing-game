@@ -265,12 +265,13 @@ function startGame() {
     resetStopwatch(); // Reset stopwatch at the start of the game
     showGameplayUI();
     missCount = 0;
-    missCountDisplay.textContent = `0 / ${maxMisses}`;
+    // Fix: Convert missCount and maxMisses to strings before concatenation
+    missDisplay.textContent = `${missCount} / ${maxMisses}`;
 
     const countdownElem = document.getElementById("countdown");
     let count = 3;
 
-    countdownElem.textContent = count;
+    countdownElem.textContent = count.toString();
     countdownElem.style.display = "block";
     isPaused = true; // Pause the game during countdown
     isCountdownActive = true;  // Set countdown active
@@ -281,7 +282,7 @@ function startGame() {
     const countdownInterval = setInterval(() => {
         count--;
         if (count > 0) {
-            countdownElem.textContent = count;
+            countdownElem.textContent = count.toString();
         } else if (count === 0) {
             countdownElem.textContent = "Start!";
         } else {
@@ -316,7 +317,8 @@ function beginGameplay() {
     nextKaIndex = 0;
     notes = [];
     missCount = 0;
-    missCountDisplay.textContent = `0 / ${maxMisses}`; // ← Uses the correct maxMisses dynamically
+    // Fix: Convert missCount and maxMisses to strings before concatenation
+    missDisplay.textContent = `${missCount} / ${maxMisses}`;
     lastFrameTime = null;
 
 
@@ -377,7 +379,8 @@ function gameLoop(timestamp) {
         if (note.inHitzone && !note.counted && note.x < hitzoneStartX) {
             note.counted = true; // only count once
             missCount++;
-            document.getElementById("miss-count").textContent = missCount;
+            // Fix: Convert missCount to string before displaying
+            document.getElementById("miss-count").textContent = `${missCount} / ${maxMisses}`;
 
             if (missCount >= maxMisses) {
                 return endGame("missed"); // Important: Pass "missed" reason!
@@ -449,7 +452,7 @@ document.addEventListener("keydown", (e) => {
                 }
 
                 // Update score display
-                scoreDisplay.textContent = score;
+                scoreDisplay.textContent = score.toString();
 
                 // Remove the note
                 const hitzoneIndex = notesInHitzone.indexOf(note);
@@ -529,12 +532,13 @@ function resetGame() {
 
     // Reset score
     score = 0;
-    scoreDisplay.textContent = score;
+    scoreDisplay.textContent = score.toString();
 
     // Reset miss counter
     missCount = 0;
     if (missDisplay) {
-        missDisplay.textContent = missCount;
+        // Fix: Convert missCount and maxMisses to strings
+        missDisplay.textContent = `${missCount} / ${maxMisses}`;
     }
     notesInHitzone = [];
 
@@ -596,7 +600,7 @@ function stopGame() {
     // Reset all game-specific state
     isPaused = false;  // Just to ensure it's reset
     score = 0;  // Reset score
-    scoreDisplay.textContent = score;
+    scoreDisplay.textContent = score.toString();
 
     // Hide game container and pause overlay
     gameContainer.style.display = "none";
@@ -632,7 +636,7 @@ function endGame(reason = "missed") {
         // Hide the full game container after delay
         gameContainer.style.display = "none";
 
-        finalScoreDisplay.textContent = score;
+        finalScoreDisplay.textContent = score.toString();
         beatmapNameResult.textContent = beatmapName;
 
         const isNewBest = saveHighScore(beatmapName, selectedDifficulty, score);
@@ -760,12 +764,19 @@ function getCaughtFish(score, difficulty, lootTable) {
         }
     }
 
-    // 2. Grade-based fish (non-rare)
+    // 2. Grade-based fish (non-rare) with grade normalization
     const eligibleFish = lootTable.filter(f => {
         if (f.isRare) return false;
-        const fishGradeIndex = gradeOrder.indexOf(f.grade || "C");
-        // Player can catch fish of equal or lower grade
-        return fishGradeIndex <= playerGradeIndex;
+
+        const normalizedGrade = (f.grade || "C").trim().toUpperCase().replace(/\s+/g, '');
+        const fishGradeIndex = gradeOrder.indexOf(normalizedGrade);
+
+        // Debug print to catch weird data
+        if (fishGradeIndex === -1) {
+            console.warn(`⚠️ Invalid grade "${f.grade}" on fish "${f.name}"`);
+        }
+
+        return fishGradeIndex !== -1 && fishGradeIndex <= playerGradeIndex;
     });
 
     console.log("Eligible fish:", eligibleFish.map(f => f.name));
@@ -788,6 +799,7 @@ function getCaughtFish(score, difficulty, lootTable) {
         isRareCatch: false
     };
 }
+
 
 function loadCaughtFishList() {
     caughtFishListByDifficulty = JSON.parse(
@@ -815,6 +827,7 @@ function getHighScore(mapName, difficulty) {
     const scores = loadHighScores();
     return scores[_scoreKey(mapName, difficulty)] || 0;
 }
+
 
 function saveHighScore(mapName, difficulty, score) {
     const key = _scoreKey(mapName, difficulty);
@@ -975,16 +988,15 @@ function changeBackground(imagePath) {
 
     // Set the new background image for the new layer
     newBg.style.backgroundImage = `url(${imagePath})`;
-    newBg.style.opacity = 1;  // Fade in the new background
+    newBg.style.opacity = "1";  // Convert number to string
 
-    // After the fade-in, swap the layers
+// After the fade-in, swap the layers
     setTimeout(() => {
-        oldBg.style.backgroundImage = `url(${imagePath})`;  // Update the old background
-        oldBg.style.opacity = 1;   // Fade in the old background
-        newBg.style.opacity = 0;   // Fade out the new background
-    }, 300);  // Matches the duration of the transition
+        oldBg.style.backgroundImage = `url(${imagePath})`;
+        oldBg.style.opacity = "1";   // Convert number to string
+        newBg.style.opacity = "0";   // Convert number to string
+    }, 300);
 }
-
 
 // 🎵 Volume Controls
 const volumeControl = document.getElementById("volume-control");
