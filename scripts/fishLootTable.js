@@ -98,8 +98,8 @@ export const fishLootTable = {
         "Okinawa Islands (沖縄)": [
             { grade: "C",  name: "Sea Bream", fishSize: 5, fishImage: "/fishing-game/images/fish/okinawa/sea_bream.png" },
             { grade: "B",  name: "Rockfish", fishSize: 2, fishImage: "/fishing-game/images/fish/okinawa/rockfish.png" },
-            { grade: "A",  name: "Amberjack", fishSize: 10, fishImage: "/fishing-game/images/fish/okinawa/amberjack.png" },
-            { grade: "S",  name: "Japanese Sea Bass", fishSize: 15, fishImage: "/fishing-game/images/fish/okinawa/sea_bass.png" },
+            { grade: "S",  name: "Amberjack", fishSize: 10, fishImage: "/fishing-game/images/fish/okinawa/amberjack.png" },
+            { grade: "A",  name: "Japanese Sea Bass", fishSize: 15, fishImage: "/fishing-game/images/fish/okinawa/sea_bass.png" },
             { grade: "S+",  name: "Mola Mola", fishSize: 1000, fishImage: "/fishing-game/images/fish/okinawa/molamola.png" },
             {
                 name: "Ningen",
