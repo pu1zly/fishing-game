@@ -174,9 +174,9 @@ export const fishLootTable = {
 
         "Lake Victoria": [
             { grade: "C",  name: "African Bullfrog", fishSize: 1.5, fishImage: "/fishing-game/images/fish/victoria/bullfrog.png" },
-            { grade: "B",  name: "African Helmeted Turtle", fishSize: 2, fishImage: "/fishing-game/images/fish/victoria/helmet_turtle.png" },
+            { grade: "B",  name: "Helmeted Turtle", fishSize: 2, fishImage: "/fishing-game/images/fish/victoria/helmet_turtle.png" },
             { grade: "A",  name: "Serrated Hinged Terrapin", fishSize: 5, fishImage: "/fishing-game/images/fish/victoria/terrapin.png" },
-            { grade: "S",  name: "Nile Softshell Turtle", fishSize: 40, fishImage: "/fishing-game/images/fish/victoria/softshell.png" },
+            { grade: "S",  name: "Softshell Turtle", fishSize: 40, fishImage: "/fishing-game/images/fish/victoria/softshell.png" },
             { grade: "S+",  name: "Nile Crocodile", fishSize: 250, fishImage: "/fishing-game/images/fish/victoria/croc.png" },
             {
                 name: "Pixel Perch",
