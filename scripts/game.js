@@ -1,5 +1,4 @@
 import { beatmaps } from "./beatmaps.js";
-import {fishData} from "./fishData.js";
 import { fishLootTable } from './fishLootTable.js';
 
 const noteContainer = document.getElementById("note-container");
@@ -161,25 +160,6 @@ function showSongMenu(level) {
         // Add fish info preview
         const info = document.createElement("div");
         info.classList.add("beatmap-info");
-
-        const fish = fishData[map.name];
-        if (fish) {
-            info.innerHTML = `
-                <h4><strong>${map.name}</strong></h4>
-                <br>
-                <img src="${map.fishImage}" alt="${map.name}" class="fish-preview">
-                <p><strong>Scientific Name:</strong> ${fish.scientificName}</p>
-                <br>
-                <strong>Description:</strong> ${fish.description}</p>
-                <br>
-                <p><strong>Size:</strong> ${fish.size || 'Unknown'}</p>
-            `;
-        } else {
-            info.innerHTML = `
-                <h4>${map.name}</h4>
-                <p>Fish data not available</p>
-            `;
-        }
 
         wrapper.appendChild(info);
         songList.appendChild(wrapper);

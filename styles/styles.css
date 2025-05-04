@@ -1060,57 +1060,6 @@ body.paused #pause-overlay,
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.beatmap-button:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-}
-
-label {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%; /* Make sure it stretches full width */
-    padding: 5px 10px; /* Optional: nice breathing room */
-}
-
-.map-name {
-    font-weight: bold;
-    font-size: 18px;
-    color: #fff;
-}
-
-.best-score {
-    font-size: 16px;
-    color: #ccc;
-}
-
-.beatmap-info {
-    display: none;
-    position: absolute;
-    bottom: -170px;
-    left:105%;
-    width: 200px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 12px;
-    border-radius: 8px;
-    z-index: 5;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-}
-
-.beatmap-item:hover .beatmap-info {
-    display: block;
-}
-
-.fish-preview {
-    width: 150px;
-    height: auto;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-bottom: 13px;
-}
-
 /* Reset Scores Button */
 #reset-scores-btn {
     display: inline-flex;
