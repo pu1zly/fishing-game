@@ -90,9 +90,9 @@ function setDifficulty(level) {
 
     // 🔁 Smooth background transition
     let bgImage = "";
-    if (level === "easy") bgImage = "/fishing-game/images/bg/easy-bg.gif";
-    if (level === "medium") bgImage = "/fishing-game/images/bg/medium-bg.gif";
-    if (level === "hard") bgImage = "/fishing-game/images/bg/hard-bg.gif";
+    if (level === "easy") bgImage = "/images/bg/easy-bg.gif";
+    if (level === "medium") bgImage = "/images/bg/medium-bg.gif";
+    if (level === "hard") bgImage = "/images/bg/hard-bg.gif";
     changeBackground(bgImage);
 
     showSongMenu(level);
@@ -118,7 +118,7 @@ function showSongMenu(level) {
         btn.classList.add("image-button"); // apply custom button styles
 
         // Background image and layout styling
-        btn.style.backgroundImage = `url('/fishing-game/images/btn/Longbutton2.png')`;
+        btn.style.backgroundImage = `url('/images/btn/Longbutton2.png')`;
         btn.style.backgroundSize = "fill";
         btn.style.backgroundRepeat = "no-repeat";
         btn.style.backgroundPosition = "center";
@@ -379,6 +379,7 @@ function gameLoop(timestamp) {
         if (note.inHitzone && !note.counted && note.x < hitzoneStartX) {
             note.counted = true; // only count once
             missCount++;
+score = Math.max(0, score - 50);
             // Fix: Convert missCount to string before displaying
             document.getElementById("miss-count").textContent = `${missCount} / ${maxMisses}`;
 
@@ -1067,6 +1068,7 @@ const missCountDisplay = document.getElementById("miss-count");
 
 function incrementMiss() {
     missCount++;
+score = Math.max(0, score - 50);
     missCountDisplay.textContent = `${missCount} / ${maxMisses}`; // 🔁 Show X / Y
 
     if (missCount >= maxMisses) {
