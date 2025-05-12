@@ -118,11 +118,8 @@ function showSongMenu(level) {
         btn.classList.add("image-button"); // apply custom button styles
 
         // Background image and layout styling
-<<<<<<< HEAD
         btn.style.backgroundImage = `url('./images/btn/Longbutton2.png')`;
-=======
         btn.style.backgroundImage = `url('/fishing-game/images/btn/Longbutton2.png')`;
->>>>>>> parent of 58f74cc (try directory)
         btn.style.backgroundSize = "fill";
         btn.style.backgroundRepeat = "no-repeat";
         btn.style.backgroundPosition = "center";
